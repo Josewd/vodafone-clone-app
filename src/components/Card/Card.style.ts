@@ -57,7 +57,7 @@ export const IconBox = styled.View`
 
 export const wrapperBox = StyleSheet.create({
   large: {
-    width: '100%',
+    width: 362.5,
     borderRadius: 5,
     alignItems: 'center',
     justifyContent: 'center',
@@ -93,7 +93,7 @@ export const wrapperBox = StyleSheet.create({
     shadowRadius: 4.65,
   },
   small: {
-    width: 160,
+    width: 175,
     borderRadius: 10,
     alignItems: 'center',
     justifyContent: 'center',

@@ -73,9 +73,9 @@ const Home: React.FC = () => {
           icon="phone"
           title="Calls"
           size="large"
-          data={{ total: 500, consumed: 374 }}
+          data={{ total: 500, consumed: 174 }}
           planType="500 Min Monthly"
-          lastRenew="Wed May 02 2022 12:56:51 GMT+0100 (Western European Summer Time)"
+          lastRenew="Wed May 01 2022 12:56:51 GMT+0100 (Western European Summer Time)"
         />
       </ScrollView>
     </ImageBackground>
