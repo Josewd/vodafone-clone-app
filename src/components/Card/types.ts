@@ -4,7 +4,7 @@ export interface Props {
   title: string;
   backgroundColor?: string;
   children?: React.ReactNode;
-  consumed?: number;
+  data?: { total: number; consumed: number };
   planType?: string;
   lastRenew?: string;
   invoice?: number;

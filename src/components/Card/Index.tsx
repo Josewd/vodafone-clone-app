@@ -22,7 +22,7 @@ import { Props } from './types';
 
 export const Card = (props: Props) => {
   const {
-    consumed,
+    data,
     planType,
     lastRenew,
     size,
@@ -36,19 +36,23 @@ export const Card = (props: Props) => {
   const color = backgroundColor ? '#fff' : '#000';
 
   const mountProgressBar = () => {
-    return consumed ? (
+    const textInfo = icon === 'phone' ? ' Minutes used' : 'GB used';
+    return data ? (
       <>
         <ProgressBox>
           <PlanRow>
             <Title size={25}>{planType}</Title>
-            <SubTitle>{consumed}GB used</SubTitle>
+            <SubTitle>
+              {data.consumed}
+              {textInfo}
+            </SubTitle>
           </PlanRow>
           <Progress
             width="90%"
             viewStyle="Horizontal"
             indeterminate={false}
             color="red"
-            progress={(consumed || 0) / 100}
+            progress={1 - 100 / (data.total / data.consumed) / 100}
           />
         </ProgressBox>
         <Row>

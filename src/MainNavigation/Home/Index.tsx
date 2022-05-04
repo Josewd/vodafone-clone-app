@@ -45,8 +45,8 @@ const Home: React.FC = () => {
           icon="wifi"
           title="Internet"
           size="large"
-          consumed={95}
-          planType="Unlimited"
+          data={{ total: 100, consumed: 78 }}
+          planType="100GB Monthly"
           lastRenew="Wed May 02 2022 12:56:51 GMT+0100 (Western European Summer Time)"
         />
         <Row>
@@ -69,6 +69,14 @@ const Home: React.FC = () => {
             </Card>
           </View>
         </Row>
+        <Card
+          icon="phone"
+          title="Calls"
+          size="large"
+          data={{ total: 500, consumed: 374 }}
+          planType="500 Min Monthly"
+          lastRenew="Wed May 02 2022 12:56:51 GMT+0100 (Western European Summer Time)"
+        />
       </ScrollView>
     </ImageBackground>
   );
