@@ -41,7 +41,7 @@ export const Title = styled.Text`
   font-size: ${(props: titleProps) => `${props.size}px`};
   font-weight: 600;
   color: ${(props: titleProps) => (props.color ? props.color : '#000')};
-  margin: 0px 0 5px;
+  margin: 5px;
 `;
 
 export const SubTitle = styled.Text`
@@ -58,10 +58,11 @@ export const IconBox = styled.View`
 export const wrapperBox = StyleSheet.create({
   large: {
     width: 362.5,
+    marginHorizontal: 'auto',
     borderRadius: 5,
     alignItems: 'center',
     justifyContent: 'center',
-    height: 180,
+    height: 160,
     elevation: 12,
     backgroundColor: '#0000',
     zIndex: 99,

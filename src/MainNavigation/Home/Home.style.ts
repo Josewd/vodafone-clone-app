@@ -6,6 +6,13 @@ export const Row = styled.View`
   width: 100%;
 `;
 
+export const Banner = styled.Image`
+  width: 95%;
+  height: 180px;
+  margin: 5px auto;
+  border-radius: 5px;
+`;
+
 export const ScrollView = styled.ScrollView`
   flex: 1;
   width: 100%;
@@ -17,7 +24,6 @@ export const ImageBackground = styled.ImageBackground`
   flex: 1;
   align-items: center;
   justify-content: center;
-  background-color: #f23f3f;
   position: relative;
 `;
 

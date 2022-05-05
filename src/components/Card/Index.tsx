@@ -30,6 +30,7 @@ export const Card = (props: Props) => {
     title,
     invoice,
     backgroundColor,
+    onPress,
   } = props;
 
   const lastDate = new Date().getDate() - new Date(lastRenew || '').getDate();
@@ -79,14 +80,13 @@ export const Card = (props: Props) => {
 
   return (
     <View style={wrapperBox[size as keyof StyleMedia]}>
-      <Box
-        activeOpacity={0.8}
-        color={backgroundColor}
-        onPress={() => console.log('press')}>
+      <Box activeOpacity={0.8} color={backgroundColor} onPress={onPress}>
         <Row>
-          <IconBox>
-            <Icon name={icon} size={20} color={color} />
-          </IconBox>
+          {icon && (
+            <IconBox>
+              <Icon name={icon} size={20} color={color} />
+            </IconBox>
+          )}
           <Title color={color} size={14}>
             {title}
           </Title>

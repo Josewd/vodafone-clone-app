@@ -1,13 +1,14 @@
 export interface Props {
   size: string;
-  icon: string;
   title: string;
+  icon?: string;
   backgroundColor?: string;
   children?: React.ReactNode;
   data?: { total: number; consumed: number };
   planType?: string;
   lastRenew?: string;
   invoice?: number;
+  onPress?: () => void;
 }
 
 export type titleProps = { size: number; color?: string };
