@@ -14,9 +14,4 @@ describe('App Test', () => {
   it('renders correctly', () => {
     render(<App />);
   });
-
-  it('should have text', () => {
-    const app = render(<App />);
-    expect(app.getAllByText('Hello Junior')).toHaveLength(1);
-  });
 });

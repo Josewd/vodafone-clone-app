@@ -57,7 +57,7 @@ export const Card = (props: Props) => {
           />
         </ProgressBox>
         <Row>
-          <SubTitle>last charge was {lastDate} ago</SubTitle>
+          <SubTitle>Last renew was {lastDate} ago</SubTitle>
         </Row>
       </>
     ) : null;
@@ -67,12 +67,12 @@ export const Card = (props: Props) => {
     return (
       invoice && (
         <>
-          <Title size={16}> next bill</Title>
+          <Title size={16}>Upcoming bill</Title>
           <Title size={30}>
-            {'\u20AC'}
-            {invoice.toFixed(2)}
+            {invoice.toFixed(2).replace('.', ',')}
+            {' \u20AC'}
           </Title>
-          <SubTitle>last bill {'\u20AC'}52,43 </SubTitle>
+          <SubTitle>Last bill 52,43{' \u20AC'} </SubTitle>
         </>
       )
     );
