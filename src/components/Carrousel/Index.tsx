@@ -14,18 +14,19 @@ const Carousel: React.FC<Props> = ({ elementsList }: Props) => {
   const slideAnimation = useRef(new Animated.Value(360)).current;
   const slideOutAnimation = useRef(new Animated.Value(0)).current;
 
-  const onTransitionSlide = useCallback(() => {
-    const currentCardIndex = elementsList.findIndex(
-      card => card === selectedElement,
+  const getNextIndex = useCallback((): number => {
+    const currentIndex = elementsList.findIndex(
+      item => item === selectedElement,
     );
-    const next =
-      currentCardIndex + 1 === elementsList.length
-        ? elementsList[0]
-        : elementsList[currentCardIndex + 1];
-    setNextElement(next);
+    return currentIndex + 1 === elementsList.length ? 0 : currentIndex + 1;
+  }, [elementsList, selectedElement]);
+
+  const onTransitionSlide = useCallback(() => {
+    const nextIndex = getNextIndex();
+    setNextElement(elementsList[nextIndex]);
 
     setTimeout(() => {
-      setSelectedElement(next);
+      setSelectedElement(elementsList[nextIndex]);
     }, 500);
 
     Animated.timing(slideAnimation, {
@@ -42,7 +43,7 @@ const Carousel: React.FC<Props> = ({ elementsList }: Props) => {
       duration: 600,
       useNativeDriver: true,
     }).start(() => slideOutAnimation.setValue(0));
-  }, [elementsList, selectedElement, slideAnimation, slideOutAnimation]);
+  }, [elementsList, getNextIndex, slideAnimation, slideOutAnimation]);
 
   const mountDotsView = () => {
     return elementsList.map((item, idx) => {
@@ -70,7 +71,7 @@ const Carousel: React.FC<Props> = ({ elementsList }: Props) => {
   }, [onTransitionSlide]);
 
   return (
-    <Pressable onPress={() => onTransitionSlide()} style={classes.container}>
+    <Pressable onPress={onTransitionSlide} style={classes.container}>
       <Animated.View
         style={{
           ...classes.element,
