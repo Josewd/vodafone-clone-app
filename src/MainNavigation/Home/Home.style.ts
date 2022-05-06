@@ -4,6 +4,8 @@ import styled from 'styled-components/native';
 export const Row = styled.View`
   flex-direction: row;
   width: 100%;
+  align-items: center;
+  justify-content: center;
 `;
 
 export const Banner = styled.Image`

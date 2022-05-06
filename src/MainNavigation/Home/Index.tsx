@@ -9,9 +9,9 @@ import {
 import { Text } from 'react-native-elements';
 
 // Components
-import { Card } from '../../components/Card/Index';
+import { Card } from '../../components/Card/Card';
 import Header from '../../components/Header/Index';
-import Carrousel from '../../components/Carrousel/Index';
+import Caroussel from '../../components/Carrousel/Index';
 
 // Media
 import bckImage from '../../img/vodafone-bck.jpg';
@@ -82,7 +82,7 @@ const Home: React.FC = ({ navigation }: any) => {
       <ScrollView
         refreshControl={refreshControl}
         contentContainerStyle={scroolBox.center}>
-        <Carrousel elementsList={cardList} />
+        <Caroussel elementsList={cardList} />
         <Row>
           <TouchableOpacity
             activeOpacity={0.8}

@@ -1,5 +1,5 @@
 import React, { useCallback, useEffect, useRef, useState } from 'react';
-import { TouchableOpacity, Animated, View } from 'react-native';
+import { Animated, View, Pressable } from 'react-native';
 
 // Style
 import { classes } from './style';
@@ -7,33 +7,42 @@ import { classes } from './style';
 // Types
 import { Props } from './types';
 
-const Carrousel: React.FC<Props> = ({ elementsList }: Props) => {
+const Carousel: React.FC<Props> = ({ elementsList }: Props) => {
   const [selectedElement, setSelectedElement] = useState(elementsList[0]);
   const [nextElement, setNextElement] = useState<React.ReactNode | undefined>();
 
   const slideAnimation = useRef(new Animated.Value(360)).current;
+  const slideOutAnimation = useRef(new Animated.Value(0)).current;
 
   const onTransitionSlide = useCallback(() => {
     const currentCardIndex = elementsList.findIndex(
       card => card === selectedElement,
     );
-
     const next =
       currentCardIndex + 1 === elementsList.length
         ? elementsList[0]
         : elementsList[currentCardIndex + 1];
     setNextElement(next);
 
+    setTimeout(() => {
+      setSelectedElement(next);
+    }, 500);
+
     Animated.timing(slideAnimation, {
       toValue: 5,
       duration: 600,
       useNativeDriver: true,
     }).start(() => {
-      setSelectedElement(next);
       setNextElement(undefined);
       slideAnimation.setValue(360);
     });
-  }, [elementsList, selectedElement, slideAnimation]);
+
+    Animated.timing(slideOutAnimation, {
+      toValue: -360,
+      duration: 600,
+      useNativeDriver: true,
+    }).start(() => slideOutAnimation.setValue(0));
+  }, [elementsList, selectedElement, slideAnimation, slideOutAnimation]);
 
   const mountDotsView = () => {
     return elementsList.map((item, idx) => {
@@ -42,6 +51,7 @@ const Carrousel: React.FC<Props> = ({ elementsList }: Props) => {
       );
       return (
         <View
+          key={idx}
           // eslint-disable-next-line react-native/no-inline-styles
           style={{
             ...classes.dot,
@@ -55,28 +65,32 @@ const Carrousel: React.FC<Props> = ({ elementsList }: Props) => {
   useEffect(() => {
     const automateAnimation = setInterval(() => {
       onTransitionSlide();
-    }, 4000);
+    }, 6000);
     return () => clearInterval(automateAnimation);
   }, [onTransitionSlide]);
 
   return (
-    <TouchableOpacity
-      onPress={() => onTransitionSlide()}
-      activeOpacity={1}
-      style={classes.container}>
-      <View style={classes.dotsContainer}>{mountDotsView()}</View>
-      {selectedElement}
+    <Pressable onPress={() => onTransitionSlide()} style={classes.container}>
+      <Animated.View
+        style={{
+          ...classes.element,
+          transform: [{ translateX: slideOutAnimation }],
+        }}>
+        <View style={classes.dotsContainer}>{mountDotsView()}</View>
+        {selectedElement}
+      </Animated.View>
       {nextElement && (
         <Animated.View
           style={{
             ...classes.nextElement,
             transform: [{ translateX: slideAnimation }],
           }}>
+          <View style={classes.dotsContainer}>{mountDotsView()}</View>
           {nextElement}
         </Animated.View>
       )}
-    </TouchableOpacity>
+    </Pressable>
   );
 };
 
-export default Carrousel;
+export default Carousel;

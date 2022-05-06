@@ -8,9 +8,12 @@ export const classes = StyleSheet.create({
     overflow: 'hidden',
   },
   nextElement: {
-    width: '95%',
+    width: '100%',
     position: 'absolute',
     zIndex: 99,
+  },
+  element: {
+    width: '100%',
   },
   dot: {
     width: 5,

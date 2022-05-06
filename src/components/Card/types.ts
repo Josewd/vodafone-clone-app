@@ -8,7 +8,6 @@ export interface Props {
   planType?: string;
   lastRenew?: string;
   invoice?: number;
-  onPress?: () => void;
 }
 
 export type titleProps = { size: number; color?: string };

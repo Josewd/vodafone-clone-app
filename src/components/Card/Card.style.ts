@@ -76,7 +76,7 @@ export const wrapperBox = StyleSheet.create({
     shadowRadius: 4.65,
   },
   medium: {
-    width: 165,
+    width: 175,
     borderRadius: 10,
     alignItems: 'center',
     justifyContent: 'center',
@@ -94,7 +94,7 @@ export const wrapperBox = StyleSheet.create({
     shadowRadius: 4.65,
   },
   small: {
-    width: 165,
+    width: 160,
     borderRadius: 10,
     alignItems: 'center',
     justifyContent: 'center',
