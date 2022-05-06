@@ -1,11 +1,17 @@
 // Core
 import React, { useState } from 'react';
-import { RefreshControl, View, TouchableOpacity, StyleSheet, TextStyle } from 'react-native';
+import {
+  RefreshControl,
+  View,
+  TouchableOpacity,
+  StyleSheet,
+} from 'react-native';
 import { Text } from 'react-native-elements';
 
 // Components
 import { Card } from '../../components/Card/Index';
 import Header from '../../components/Header/Index';
+import Carrousel from '../../components/Carrousel/Index';
 
 // Media
 import bckImage from '../../img/vodafone-bck.jpg';
@@ -23,6 +29,33 @@ import {
 
 const Home: React.FC = ({ navigation }: any) => {
   const [loading, setLoading] = useState(false);
+
+  const cardList = [
+    <Card
+      icon="wifi"
+      title="Internet"
+      size="large"
+      data={{ total: 100, consumed: 38 }}
+      planType="100Gb Monthly"
+      lastRenew="Wed May 01 2022 12:56:51 GMT+0100 (Western European Summer Time)"
+    />,
+    <Card
+      icon="phone"
+      title="Calls"
+      size="large"
+      data={{ total: 500, consumed: 380 }}
+      planType="500Gb Monthly"
+      lastRenew="Wed May 01 2022 12:56:51 GMT+0100 (Western European Summer Time)"
+    />,
+    <Card
+      icon="tv"
+      title="Data Media"
+      size="large"
+      data={{ total: 50, consumed: 8 }}
+      planType="50Gb Monthly"
+      lastRenew="Wed May 01 2022 12:56:51 GMT+0100 (Western European Summer Time)"
+    />,
+  ];
 
   const onRefresh = (): void => {
     setLoading(true);
@@ -49,14 +82,7 @@ const Home: React.FC = ({ navigation }: any) => {
       <ScrollView
         refreshControl={refreshControl}
         contentContainerStyle={scroolBox.center}>
-        <Card
-          icon="wifi"
-          title="Internet"
-          size="large"
-          data={{ total: 100, consumed: 78 }}
-          planType="100GB Monthly"
-          lastRenew="Wed May 01 2022 12:56:51 GMT+0100 (Western European Summer Time)"
-        />
+        <Carrousel elementsList={cardList} />
         <Row>
           <Card
             title="Current Charges"

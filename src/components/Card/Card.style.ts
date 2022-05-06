@@ -4,9 +4,9 @@ import styled from 'styled-components/native';
 // types
 import { boxProps, titleProps } from './types';
 
-export const Box = styled.TouchableOpacity`
+export const Box = styled.View`
   box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.6);
-  width: 95%;
+  width: 100%;
   margin: 0 auto;
   height: 95%;
   z-index: 99;
@@ -57,7 +57,7 @@ export const IconBox = styled.View`
 
 export const wrapperBox = StyleSheet.create({
   large: {
-    width: 362.5,
+    width: '100%',
     marginHorizontal: 'auto',
     borderRadius: 5,
     alignItems: 'center',
@@ -76,7 +76,7 @@ export const wrapperBox = StyleSheet.create({
     shadowRadius: 4.65,
   },
   medium: {
-    width: 175,
+    width: 165,
     borderRadius: 10,
     alignItems: 'center',
     justifyContent: 'center',
@@ -84,7 +84,7 @@ export const wrapperBox = StyleSheet.create({
     elevation: 12,
     backgroundColor: '#0000',
     zIndex: 99,
-    margin: 2.5,
+    margin: 4,
     shadowColor: '#000',
     shadowOffset: {
       width: 0,
@@ -94,7 +94,7 @@ export const wrapperBox = StyleSheet.create({
     shadowRadius: 4.65,
   },
   small: {
-    width: 175,
+    width: 165,
     borderRadius: 10,
     alignItems: 'center',
     justifyContent: 'center',
