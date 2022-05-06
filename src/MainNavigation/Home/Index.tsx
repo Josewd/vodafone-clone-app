@@ -84,15 +84,18 @@ const Home: React.FC = ({ navigation }: any) => {
         contentContainerStyle={scroolBox.center}>
         <Carrousel elementsList={cardList} />
         <Row>
-          <Card
-            title="Current Charges"
-            icon="file-text-o"
-            size="medium"
-            invoice={72}
+          <TouchableOpacity
+            activeOpacity={0.8}
             onPress={() =>
               navigation.navigate('Payments', { name: 'Payments' })
-            }
-          />
+            }>
+            <Card
+              title="Current Charges"
+              icon="file-text-o"
+              size="medium"
+              invoice={72}
+            />
+          </TouchableOpacity>
           <View>
             <Card title="My Vodafone Tv" icon="tv" size="small">
               <Text>Manage Screens</Text>
