@@ -46,9 +46,9 @@ const Carousel: React.FC<Props> = ({ elementsList }: Props) => {
   }, [elementsList, getNextIndex, slideAnimation, slideOutAnimation]);
 
   const mountDotsView = () => {
-    return elementsList.map((item, idx) => {
-      const currentCardIndex = elementsList.findIndex(
-        card => card === selectedElement,
+    return elementsList.map((_, idx) => {
+      const currentItemIndex = elementsList.findIndex(
+        item => item === selectedElement,
       );
       return (
         <View
@@ -56,7 +56,7 @@ const Carousel: React.FC<Props> = ({ elementsList }: Props) => {
           // eslint-disable-next-line react-native/no-inline-styles
           style={{
             ...classes.dot,
-            backgroundColor: currentCardIndex === idx ? 'black' : '#888888',
+            backgroundColor: currentItemIndex === idx ? 'black' : '#888888',
           }}
         />
       );

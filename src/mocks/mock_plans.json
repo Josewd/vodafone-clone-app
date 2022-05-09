@@ -1,0 +1,31 @@
+{
+  "data": [
+    {
+      "icon": "wifi",
+      "title": "Internet",
+      "total": 100,
+      "consumed": 38,
+      "planType": "100Gb Monthly",
+      "lastRenew": "Wed May 01 2022 12:56:51 GMT+0100 (Western European Summer Time)",
+      "hasProgressBar": true
+    },
+    {
+      "icon": "phone",
+      "title": "Calls",
+      "total": 500,
+      "consumed": 138,
+      "planType": "500 Min Monthly",
+      "lastRenew": "Wed May 02 2022 12:56:51 GMT+0100 (Western European Summer Time)",
+      "hasProgressBar": true
+    },
+    {
+      "icon": "tv",
+      "title": "Data Media",
+      "total": 10,
+      "consumed": 4,
+      "planType": "Plus 10Gb Monthly",
+      "lastRenew": "Wed May 04 2022 12:56:51 GMT+0100 (Western European Summer Time)",
+      "hasProgressBar": true
+    }
+  ]
+}

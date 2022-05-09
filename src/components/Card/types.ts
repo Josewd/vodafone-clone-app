@@ -1,11 +1,17 @@
 export interface Props {
   size: string;
-  title: string;
+  title?: string;
   icon?: string;
   backgroundColor?: string;
   children?: React.ReactNode;
-  data?: { total: number; consumed: number };
-  planType?: string;
+  data?: Array<{
+    title: string;
+    icon: string;
+    total: number;
+    consumed: number;
+    planType: string;
+    lastRenew: string;
+  }>;
   lastRenew?: string;
   invoice?: number;
 }

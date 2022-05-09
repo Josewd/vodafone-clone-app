@@ -14,11 +14,12 @@ export const Box = styled.View`
   background-color: ${(props: boxProps) =>
     props.color ? props.color : 'white'};
   align-items: center;
+  position: relative;
 `;
 
 export const ProgressBox = styled.View`
-  width: 100%;
-  margin: 10px auto;
+  width: 340px;
+  margin: 10px 0px;
   align-items: center;
 `;
 
@@ -57,7 +58,7 @@ export const IconBox = styled.View`
 
 export const wrapperBox = StyleSheet.create({
   large: {
-    width: '100%',
+    width: '95%',
     marginHorizontal: 'auto',
     borderRadius: 5,
     alignItems: 'center',
@@ -110,5 +111,21 @@ export const wrapperBox = StyleSheet.create({
     },
     shadowOpacity: 0.27,
     shadowRadius: 4.65,
+  },
+});
+
+export const classes = StyleSheet.create({
+  dot: {
+    width: 5,
+    height: 5,
+    borderRadius: 5,
+    margin: 2,
+  },
+  dotsContainer: {
+    flexDirection: 'row',
+    position: 'absolute',
+    top: 10,
+    right: 10,
+    zIndex: 9999,
   },
 });
